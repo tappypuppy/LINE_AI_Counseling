@@ -106,6 +106,8 @@ def handle_message(event):
     timestamp = datetime.utcfromtimestamp(event.timestamp / 1000.0)  # Convert timestamp to datetime
     prompt = event.message.text
 
+    print(prompt)
+
     messages_for_gpt = []
 
     if user_id_exists(userId):
@@ -137,6 +139,7 @@ def handle_message(event):
                     )
     
     reply_message = response.choices[0].message.content
+    print(reply_message)
     # reply_message = "テスト"
 
     # 受信したメッセージをデータベースに保存
